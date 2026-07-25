@@ -18,24 +18,46 @@
     border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;}
   .bar button.on{background:var(--accent);color:#1a1205;border-color:var(--accent);font-weight:700;}
   #list{padding:0 12px;}
-  .car{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);
-    border-radius:var(--radius);padding:10px;margin-bottom:10px;text-decoration:none;color:var(--text);}
-  .car:active{background:var(--panel2);}
+  .car{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+       padding:10px;margin-bottom:10px;}
+  .car.over{border-color:var(--warn);}
+  .top{display:flex;gap:12px;}
   .thumb{width:104px;height:78px;flex-shrink:0;border-radius:8px;object-fit:cover;background:var(--panel2);}
   .info{flex:1;min-width:0;}
-  .title{font-size:14.5px;font-weight:600;line-height:1.3;overflow:hidden;display:-webkit-box;
-    -webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .title{font-size:14.5px;font-weight:600;line-height:1.3;}
+  .title a{color:var(--text);text-decoration:none;}
+  .title a:hover{text-decoration:underline;}
   .price{font-size:16px;font-weight:700;color:var(--accent);margin-top:3px;}
   .price small{color:var(--muted);font-weight:400;font-size:11.5px;}
   .meta{font-size:12px;color:var(--muted);margin-top:3px;}
-  .tags{margin-top:5px;display:flex;gap:5px;flex-wrap:wrap;}
+  .tags{margin-top:5px;display:flex;gap:5px;flex-wrap:wrap;align-items:center;}
   .tag{font-size:10.5px;padding:2px 8px;border-radius:10px;background:var(--panel2);
     border:1px solid var(--line);color:var(--muted);}
   .tag.new{background:var(--ok);color:#08130a;border-color:var(--ok);font-weight:700;}
   .tag.warn{border-color:var(--warn);color:var(--warn);}
+  .actions{display:flex;gap:8px;margin-top:9px;}
+  .actions button,.actions a{flex:1;text-align:center;text-decoration:none;
+    background:var(--panel2);border:1px solid var(--line);color:var(--text);
+    border-radius:9px;padding:9px;font-size:12.5px;cursor:pointer;}
+  .actions .primary{background:var(--accent);color:#1a1205;border-color:var(--accent);font-weight:700;}
   #empty{color:var(--muted);text-align:center;padding:40px 20px;font-size:14px;line-height:1.6;}
   #stat{padding:16px;font-size:11.5px;color:var(--muted);line-height:1.7;}
   #stat b{color:var(--text);}
+  /* okno se zpravou */
+  #modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;z-index:20;
+         align-items:center;justify-content:center;padding:16px;}
+  #modal.show{display:flex;}
+  #box{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+       max-width:640px;width:100%;padding:16px;}
+  #box h3{font-size:15px;margin-bottom:4px;}
+  #box .hint{font-size:12px;color:var(--muted);margin-bottom:10px;}
+  #msg{width:100%;height:230px;background:var(--panel2);color:var(--text);
+       border:1px solid var(--line);border-radius:10px;padding:11px;font-size:13.5px;
+       line-height:1.5;resize:vertical;font-family:inherit;}
+  #box .row{display:flex;gap:8px;margin-top:10px;}
+  #box .row button{flex:1;border:none;border-radius:9px;padding:11px;font-size:13.5px;
+                   cursor:pointer;background:var(--panel2);color:var(--text);border:1px solid var(--line);}
+  #box .row .primary{background:var(--accent);color:#1a1205;font-weight:700;border-color:var(--accent);}
 </style>
 </head>
 <body>
@@ -47,6 +69,7 @@
 <div class="bar" id="filters">
   <button data-f="all" class="on">Vše</button>
   <button data-f="new">Jen nové</button>
+  <button data-f="budget">V rozpočtu</button>
   <button data-f="CZ">🇨🇿</button>
   <button data-f="SK">🇸🇰</button>
   <button data-f="DE">🇩🇪</button>
@@ -55,48 +78,141 @@
 </div>
 
 <div id="list"></div>
-<div id="empty" style="display:none">Zatím žádné nabídky v zadání.<br>Hlídač hledá každé 2 hodiny — nabídky se objeví tady.</div>
+<div id="empty" style="display:none">Zatím žádné nabídky v zadání.<br>Hlídač hledá každé 2 hodiny.</div>
 <div id="stat"></div>
+
+<div id="modal">
+  <div id="box">
+    <h3 id="boxTitle">Dotaz prodejci</h3>
+    <div class="hint">Zkontroluj, uprav a odešli ze svého e-mailu. Prodejce jedná s tebou, ne s robotem.</div>
+    <textarea id="msg"></textarea>
+    <div class="row">
+      <button class="primary" id="btnCopy">Zkopírovat</button>
+      <button id="btnClose">Zavřít</button>
+    </div>
+  </div>
+</div>
 
 <script>
 "use strict";
 let DATA=null, FILTER="all";
 const czk=n=>n? n.toLocaleString("cs-CZ")+" Kč" : "cena v inzerátu";
+const esc=s=>(s||"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---- generátor dotazu podle země ---- */
+function makeMsg(c){
+  const auto = c.title + (c.year? (", "+c.year):"") + (c.km? (", "+c.km.toLocaleString("cs-CZ")+" km"):"");
+  if(c.country==="DE"||c.country==="AT"){
+    return `Guten Tag,
+
+ich interessiere mich ernsthaft für Ihr Fahrzeug ${auto}.
+Inserat: ${c.url}
+
+Bitte senden Sie mir:
+- die FIN (Fahrgestellnummer) zur Historienprüfung
+- das Serviceheft bzw. Nachweise der Wartung
+- Angaben zu Vorbesitzern und eventuellen Unfallschäden
+- zusätzliche Fotos (Unterboden, Innenraum, Motorraum, eventuelle Mängel)
+
+Ich komme aus Tschechien und kann das Fahrzeug kurzfristig persönlich besichtigen und sofort bezahlen.
+Welchen Endpreis können Sie mir bei schneller Abwicklung anbieten?
+
+Vielen Dank für Ihre Antwort.
+Jan Kuchyňka`;
+  }
+  if(c.country==="IT"){
+    return `Buongiorno,
+
+sono seriamente interessato alla Sua vettura ${auto}.
+Annuncio: ${c.url}
+
+Le chiedo cortesemente:
+- il numero di telaio (VIN) per la verifica dello storico
+- il libretto dei tagliandi / prove della manutenzione
+- informazioni sui precedenti proprietari e su eventuali incidenti
+- alcune foto aggiuntive (sottoscocca, interni, vano motore, eventuali difetti)
+
+Vengo dalla Repubblica Ceca, posso venire a vedere l'auto a breve e pagare subito.
+Qual è il prezzo finale per una trattativa rapida?
+
+La ringrazio per la risposta.
+Jan Kuchyňka`;
+  }
+  return `Dobrý den,
+
+mám vážný zájem o Váš vůz ${auto}.
+Inzerát: ${c.url}
+
+Prosím Vás o:
+- VIN pro prověření historie vozu
+- servisní knihu / doklady o servisu
+- informace o počtu majitelů a případných nehodách
+- doplňující fotky (podvozek, interiér, motorový prostor, případné vady)
+
+Auto si mohu přijet prohlédnout a při dohodě rovnou zaplatit.
+Jaká je konečná cena při rychlém jednání?
+
+Děkuji za odpověď.
+Jan Kuchyňka`;
+}
 
 function render(){
   const list=document.getElementById("list"), empty=document.getElementById("empty");
   let cars=(DATA.cars||[]);
   if(FILTER==="new") cars=cars.filter(c=>c.new);
+  else if(FILTER==="budget") cars=cars.filter(c=>!c.over);
   else if(FILTER!=="all") cars=cars.filter(c=>c.country===FILTER);
   list.innerHTML="";
   empty.style.display=cars.length? "none":"block";
-  for(const c of cars){
-    const a=document.createElement("a");
-    a.className="car"; a.href=c.url; a.target="_blank"; a.rel="noopener";
-    a.innerHTML=`
-      <img class="thumb" src="${c.img||''}" alt="" onerror="this.style.visibility='hidden'">
-      <div class="info">
-        <div class="title">${c.title}</div>
-        <div class="price">${czk(c.price_czk)} ${c.price_orig&&c.price_orig!=="?"?`<small>(${c.price_orig})</small>`:""}</div>
-        <div class="meta">${c.year||"rok ?"} · ${c.km? c.km.toLocaleString("cs-CZ")+" km":"nájezd ?"} · ${c.src}</div>
-        <div class="tags">
-          ${c.new? '<span class="tag new">NOVÉ</span>':""}
-          <span class="tag">${c.country}</span>
-          ${c.note? `<span class="tag warn">${c.note}</span>`:""}
+  cars.forEach((c,i)=>{
+    const d=document.createElement("div");
+    d.className="car"+(c.over?" over":"");
+    d.innerHTML=`
+      <div class="top">
+        <img class="thumb" src="${esc(c.img)}" alt="" onerror="this.style.visibility='hidden'">
+        <div class="info">
+          <div class="title"><a href="${esc(c.url)}" target="_blank" rel="noopener">${esc(c.title)}</a></div>
+          <div class="price">${czk(c.price_czk)} ${c.price_orig&&c.price_orig!=="?"?`<small>(${esc(c.price_orig)})</small>`:""}</div>
+          <div class="meta">${c.year||"rok ?"} · ${c.km? c.km.toLocaleString("cs-CZ")+" km":"nájezd ?"} · ${esc(c.src)}</div>
+          <div class="tags">
+            ${c.new? '<span class="tag new">NOVÉ</span>':""}
+            <span class="tag">${esc(c.country)}</span>
+            ${c.over? '<span class="tag warn">nad rozpočet — k jednání</span>':""}
+            ${c.note && !c.over? `<span class="tag warn">${esc(c.note)}</span>`:""}
+          </div>
         </div>
+      </div>
+      <div class="actions">
+        <a href="${esc(c.url)}" target="_blank" rel="noopener">Otevřít inzerát</a>
+        <button class="primary" data-i="${i}">✉ Připravit dotaz</button>
       </div>`;
-    list.appendChild(a);
-  }
-  const st=document.getElementById("stat");
-  st.innerHTML="<b>Stav zdrojů:</b> "+Object.entries(DATA.status||{})
-    .map(([k,v])=>`${k}: ${v}`).join(" · ");
+    d.querySelector("button").onclick=()=>openMsg(c);
+    list.appendChild(d);
+  });
+  document.getElementById("stat").innerHTML="<b>Stav zdrojů:</b> "+
+    Object.entries(DATA.status||{}).map(([k,v])=>`${esc(k)}: ${esc(v)}`).join(" · ");
 }
+
+function openMsg(c){
+  document.getElementById("boxTitle").textContent="Dotaz prodejci — "+c.country;
+  document.getElementById("msg").value=makeMsg(c);
+  document.getElementById("modal").classList.add("show");
+}
+document.getElementById("btnClose").onclick=()=>document.getElementById("modal").classList.remove("show");
+document.getElementById("modal").onclick=e=>{ if(e.target.id==="modal") e.currentTarget.classList.remove("show"); };
+document.getElementById("btnCopy").onclick=()=>{
+  const t=document.getElementById("msg");
+  t.select();
+  try{ document.execCommand("copy"); }catch(e){}
+  if(navigator.clipboard) navigator.clipboard.writeText(t.value).catch(()=>{});
+  const b=document.getElementById("btnCopy"); const old=b.textContent;
+  b.textContent="Zkopírováno ✓"; setTimeout(()=>b.textContent=old,1500);
+};
 
 document.getElementById("filters").addEventListener("click",e=>{
   if(e.target.tagName!=="BUTTON")return;
   document.querySelectorAll("#filters button").forEach(b=>b.classList.remove("on"));
-  e.target.classList.add("on");
-  FILTER=e.target.dataset.f; render();
+  e.target.classList.add("on"); FILTER=e.target.dataset.f; render();
 });
 
 fetch("data.json?"+Date.now()).then(r=>r.json()).then(d=>{
@@ -105,7 +221,7 @@ fetch("data.json?"+Date.now()).then(r=>r.json()).then(d=>{
     "Poslední kontrola: "+(d.updated||"?")+" · nabídek: "+(d.cars||[]).length;
   render();
 }).catch(()=>{
-  document.getElementById("upd").textContent="Data se zatím nenačetla — hlídač možná ještě neběžel.";
+  document.getElementById("upd").textContent="Data se zatím nenačetla.";
   document.getElementById("empty").style.display="block";
 });
 </script>
