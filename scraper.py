@@ -11,7 +11,8 @@ from urllib.parse import quote
 
 YEAR_MIN    = 2017
 KM_MAX      = 110_000
-PRICE_MAX   = 275_000
+PRICE_MAX   = 300_000        # zobrazovaci strop
+BUDGET      = 275_000        # tvuj rozpocet vc. tolerance
 ALERT_PRICE = 210_000
 ALERT_KM    = 80_000
 EUR_CZK     = 24.5
@@ -205,6 +206,14 @@ def ok(it):
     return True
 
 results = [r for r in results if ok(r)]
+
+# oznaceni vozu nad rozpoctem
+for r in results:
+    if r["price_czk"] and r["price_czk"] > BUDGET:
+        r["over"] = True
+        r["note"] = (r.get("note") + " | " if r.get("note") else "") + "nad rozpocet - k jednani"
+    else:
+        r["over"] = False
 
 # ---------------- historie ----------------
 try:
