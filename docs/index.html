@@ -62,7 +62,7 @@
 </head>
 <body>
 <header>
-  <h1>Hlídač aut <span>· Suzuki Swift 4×4</span></h1>
+  <h1>Hlídač aut <span id="hled">· hledání</span></h1>
   <div class="sub" id="upd">Načítám…</div>
 </header>
 
@@ -217,6 +217,7 @@ document.getElementById("filters").addEventListener("click",e=>{
 
 fetch("data.json?"+Date.now()).then(r=>r.json()).then(d=>{
   DATA=d;
+  if(d.hledani) document.getElementById("hled").textContent="· "+d.hledani;
   document.getElementById("upd").textContent=
     "Poslední kontrola: "+(d.updated||"?")+" · nabídek: "+(d.cars||[]).length;
   render();
