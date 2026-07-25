@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hlídač aut — Swift 4×4</title>
+<style>
+  :root{--bg:#0e1216;--panel:#161c22;--panel2:#1b232b;--line:#28323c;--text:#e8edf2;
+        --muted:#8b98a5;--accent:#ffb454;--ok:#66bb6a;--warn:#ef9a3c;--radius:12px;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:40px;}
+  header{padding:14px 16px 10px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5;}
+  h1{font-size:18px;}
+  h1 span{color:var(--accent);}
+  .sub{font-size:12px;color:var(--muted);margin-top:3px;}
+  .bar{display:flex;gap:8px;padding:10px 16px;flex-wrap:wrap;}
+  .bar button{background:var(--panel2);border:1px solid var(--line);color:var(--text);
+    border-radius:20px;padding:7px 14px;font-size:13px;cursor:pointer;}
+  .bar button.on{background:var(--accent);color:#1a1205;border-color:var(--accent);font-weight:700;}
+  #list{padding:0 12px;}
+  .car{display:flex;gap:12px;background:var(--panel);border:1px solid var(--line);
+    border-radius:var(--radius);padding:10px;margin-bottom:10px;text-decoration:none;color:var(--text);}
+  .car:active{background:var(--panel2);}
+  .thumb{width:104px;height:78px;flex-shrink:0;border-radius:8px;object-fit:cover;background:var(--panel2);}
+  .info{flex:1;min-width:0;}
+  .title{font-size:14.5px;font-weight:600;line-height:1.3;overflow:hidden;display:-webkit-box;
+    -webkit-line-clamp:2;-webkit-box-orient:vertical;}
+  .price{font-size:16px;font-weight:700;color:var(--accent);margin-top:3px;}
+  .price small{color:var(--muted);font-weight:400;font-size:11.5px;}
+  .meta{font-size:12px;color:var(--muted);margin-top:3px;}
+  .tags{margin-top:5px;display:flex;gap:5px;flex-wrap:wrap;}
+  .tag{font-size:10.5px;padding:2px 8px;border-radius:10px;background:var(--panel2);
+    border:1px solid var(--line);color:var(--muted);}
+  .tag.new{background:var(--ok);color:#08130a;border-color:var(--ok);font-weight:700;}
+  .tag.warn{border-color:var(--warn);color:var(--warn);}
+  #empty{color:var(--muted);text-align:center;padding:40px 20px;font-size:14px;line-height:1.6;}
+  #stat{padding:16px;font-size:11.5px;color:var(--muted);line-height:1.7;}
+  #stat b{color:var(--text);}
+</style>
+</head>
+<body>
+<header>
+  <h1>Hlídač aut <span>· Suzuki Swift 4×4</span></h1>
+  <div class="sub" id="upd">Načítám…</div>
+</header>
+
+<div class="bar" id="filters">
+  <button data-f="all" class="on">Vše</button>
+  <button data-f="new">Jen nové</button>
+  <button data-f="CZ">🇨🇿</button>
+  <button data-f="SK">🇸🇰</button>
+  <button data-f="DE">🇩🇪</button>
+  <button data-f="AT">🇦🇹</button>
+  <button data-f="IT">🇮🇹</button>
+</div>
+
+<div id="list"></div>
+<div id="empty" style="display:none">Zatím žádné nabídky v zadání.<br>Hlídač hledá každé 2 hodiny — nabídky se objeví tady.</div>
+<div id="stat"></div>
+
+<script>
+"use strict";
+let DATA=null, FILTER="all";
+const czk=n=>n? n.toLocaleString("cs-CZ")+" Kč" : "cena v inzerátu";
+
+function render(){
+  const list=document.getElementById("list"), empty=document.getElementById("empty");
+  let cars=(DATA.cars||[]);
+  if(FILTER==="new") cars=cars.filter(c=>c.new);
+  else if(FILTER!=="all") cars=cars.filter(c=>c.country===FILTER);
+  list.innerHTML="";
+  empty.style.display=cars.length? "none":"block";
+  for(const c of cars){
+    const a=document.createElement("a");
+    a.className="car"; a.href=c.url; a.target="_blank"; a.rel="noopener";
+    a.innerHTML=`
+      <img class="thumb" src="${c.img||''}" alt="" onerror="this.style.visibility='hidden'">
+      <div class="info">
+        <div class="title">${c.title}</div>
+        <div class="price">${czk(c.price_czk)} ${c.price_orig&&c.price_orig!=="?"?`<small>(${c.price_orig})</small>`:""}</div>
+        <div class="meta">${c.year||"rok ?"} · ${c.km? c.km.toLocaleString("cs-CZ")+" km":"nájezd ?"} · ${c.src}</div>
+        <div class="tags">
+          ${c.new? '<span class="tag new">NOVÉ</span>':""}
+          <span class="tag">${c.country}</span>
+          ${c.note? `<span class="tag warn">${c.note}</span>`:""}
+        </div>
+      </div>`;
+    list.appendChild(a);
+  }
+  const st=document.getElementById("stat");
+  st.innerHTML="<b>Stav zdrojů:</b> "+Object.entries(DATA.status||{})
+    .map(([k,v])=>`${k}: ${v}`).join(" · ");
+}
+
+document.getElementById("filters").addEventListener("click",e=>{
+  if(e.target.tagName!=="BUTTON")return;
+  document.querySelectorAll("#filters button").forEach(b=>b.classList.remove("on"));
+  e.target.classList.add("on");
+  FILTER=e.target.dataset.f; render();
+});
+
+fetch("data.json?"+Date.now()).then(r=>r.json()).then(d=>{
+  DATA=d;
+  document.getElementById("upd").textContent=
+    "Poslední kontrola: "+(d.updated||"?")+" · nabídek: "+(d.cars||[]).length;
+  render();
+}).catch(()=>{
+  document.getElementById("upd").textContent="Data se zatím nenačetla — hlídač možná ještě neběžel.";
+  document.getElementById("empty").style.display="block";
+});
+</script>
+</body>
+</html>
