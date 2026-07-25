@@ -1,0 +1,57 @@
+name: Hlidac aut
+
+on:
+  schedule:
+    - cron: "17 */2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  hledat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Spustit hledani
+        run: python scraper.py
+      - name: Ulozit vysledky
+        run: |
+          git config user.name "hlidac-bot"
+          git config user.email "actions@github.com"
+          git add docs/data.json
+          git diff --cached --quiet || git commit -m "Aktualizace nabidek"
+          git push
+      - name: Vyjimecna nabidka
+        if: ${{ hashFiles('alert.txt') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue create --title "Vyjimecna nabidka Swift 4x4" --body-file alert.txt
+Vpravo nahoře Commit changes → v okénku znovu Commit changes.
+
+Pak už jen tři nastavení: Settings → Pages (Branch main, složka /docs, Save) → Settings → Actions → General (dole Read and write permissions, Save) → záložka Actions → „Hlidac aut" → Run workflow.
+
+Až to spustíš, dej vědět – podíváme se na první výsledky.
+
+Jak tam dat lomítko? Když kliknu shift a tlačítko ú tak odrazí a začne nove okýnko
+
+Rozluštil klávesnicový layout a ověřil správné chování GitHubu
+Rozluštil klávesnicový layout a ověřil správné chování GitHubu
+
+To je v pořádku – tak se to má chovat! 🙂 To „nové okýnko" není chyba: GitHub každým lomítkem uzavře název složky a udělá z něj drobeček v cestě nahoře. Přesně tímhle se složky vytvářejí.
+
+Takže jen klidně piš dál v tom novém políčku:
+
+Napiš .github → Shift+ú (lomítko) → políčko odskočí, nahoře přibude .github /
+Napiš workflows → Shift+ú → nahoře přibude workflows /
+Napiš hlidac.yml → žádné lomítko, tady zůstaň.
+
+Výsledek nahoře má vypadat: hlidac / .github / workflows / a v posledním políčku hlidac.yml.
+
+Pak dolů do velkého pole vlož ten YAML text z mé předchozí zprávy a vpravo nahoře Commit changes.
+
+
