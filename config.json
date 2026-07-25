@@ -1,0 +1,13 @@
+{
+  "znacka": "suzuki",
+  "model": "swift",
+  "pohon_klicova_slova": ["4x4", "allgrip", "allrad", "4wd", "awd"],
+  "palivo": "benzin",
+  "rok_od": 2017,
+  "km_do": 110000,
+  "rozpocet_czk": 275000,
+  "zobrazit_do_czk": 300000,
+  "upozornit_cena_czk": 210000,
+  "upozornit_km": 80000,
+  "kurz_eur": 24.5
+}

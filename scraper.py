@@ -9,16 +9,39 @@ from datetime import datetime, timezone
 from urllib.request import Request, urlopen
 from urllib.parse import quote
 
-YEAR_MIN    = 2017
-KM_MAX      = 110_000
-PRICE_MAX   = 300_000        # zobrazovaci strop
-BUDGET      = 275_000        # tvuj rozpocet vc. tolerance
-ALERT_PRICE = 210_000
-ALERT_KM    = 80_000
-EUR_CZK     = 24.5
-MAX_DETAIL  = 30           # kolik detailu nejvyse otevrit u jednoho zdroje
+# ---------- NASTAVENI (uprav v souboru config.json) ----------
+try:
+    with open("config.json", encoding="utf-8") as _f:
+        CFG = json.load(_f)
+except Exception:
+    CFG = {}
 
-KW_4X4 = re.compile(r"4\s*[x×]\s*4|allgrip|4wd|awd|allrad|integrale", re.I)
+def cfg(key, default):
+    v = CFG.get(key, default)
+    return default if v in (None, "") else v
+
+ZNACKA      = str(cfg("znacka", "suzuki")).strip().lower()
+MODEL       = str(cfg("model", "swift")).strip().lower()
+POHON_KW    = [str(x).lower() for x in cfg("pohon_klicova_slova", [])]
+PALIVO      = str(cfg("palivo", "benzin")).strip().lower()
+YEAR_MIN    = int(cfg("rok_od", 2017))
+KM_MAX      = int(cfg("km_do", 110000))
+BUDGET      = int(cfg("rozpocet_czk", 275000))
+PRICE_MAX   = int(cfg("zobrazit_do_czk", BUDGET))
+ALERT_PRICE = int(cfg("upozornit_cena_czk", int(BUDGET*0.8)))
+ALERT_KM    = int(cfg("upozornit_km", int(KM_MAX*0.75)))
+EUR_CZK     = float(cfg("kurz_eur", 24.5))
+MAX_DETAIL  = 30
+HLEDANI     = "%s %s%s" % (ZNACKA.capitalize(), MODEL.capitalize(),
+                           (" " + POHON_KW[0]) if POHON_KW else "")
+EUR_MAX     = int(PRICE_MAX / EUR_CZK)
+FUEL_CODE   = {"benzin": "B", "nafta": "D", "diesel": "D", "hybrid": "2", "elektro": "E"}.get(PALIVO, "")
+
+if POHON_KW:
+    _pat = "|".join(re.escape(k).replace(r"4x4", r"4\s*[x\u00d7]\s*4") for k in POHON_KW)
+    KW_4X4 = re.compile(_pat, re.I)
+else:
+    KW_4X4 = re.compile(".")   # bez omezeni pohonu
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/126 Safari/537.36",
       "Accept-Language": "cs,en;q=0.8,de;q=0.7"}
 
@@ -70,7 +93,7 @@ def find_price_czk(text):
     return int(v) if v and 20_000 <= int(v) <= 2_000_000 else None
 
 def mk(url, src, country, title, price_czk, price_orig, year, km, img, note=""):
-    return {"id": url, "src": src, "country": country, "title": (title or "Suzuki Swift")[:130],
+    return {"id": url, "src": src, "country": country, "title": (title or HLEDANI)[:130],
             "price_czk": price_czk, "price_orig": price_orig, "year": year, "km": km,
             "url": url, "img": img or "", "note": note}
 
@@ -87,7 +110,7 @@ def run(name, fn):
 # ---------------- TIPCARS (pres detaily vozu) ----------------
 def tipcars():
     out = []
-    page = fetch("https://www.tipcars.com/suzuki-swift?vybava=pohon-4x4")
+    page = fetch("https://www.tipcars.com/%s-%s%s" % (ZNACKA, MODEL, "?vybava=pohon-4x4" if POHON_KW else ""))
     links = []
     for m in re.finditer(r'href="(https?://www\.tipcars\.com/[^"]*?-\d{6,}\.html)"', page):
         if m.group(1) not in links:
@@ -97,14 +120,14 @@ def tipcars():
         if u not in links:
             links.append(u)
     for link in links[:MAX_DETAIL]:
-        if "suzuki" not in link.lower() or "swift" not in link.lower():
+        if ZNACKA not in link.lower() or MODEL not in link.lower():
             continue
         try:
             d = fetch(link)
         except Exception:
             continue
         tm = re.search(r"<title>(.*?)</title>", d, re.S)
-        title = safe_title(tm.group(1)) if tm else "Suzuki Swift"
+        title = safe_title(tm.group(1)) if tm else HLEDANI
         title = re.split(r"\s*[|–-]\s*TipCars", title)[0].strip()
         txt = squash(d)
         if not KW_4X4.search(txt[:4000] + " " + title):
@@ -125,7 +148,7 @@ def bazos(domain, country, cur):
         base = "https://www.%s" % domain
         for start in (0, 20):
             url = ("%s/search.php?hledat=%s&rubriky=auto&hlokalita=&humkreis=25"
-                   "&cenaod=&cenado=&order=&crz=%d" % (base, quote("suzuki swift 4x4"), start))
+                   "&cenaod=&cenado=&order=&crz=%d" % (base, quote(" ".join([ZNACKA, MODEL] + (POHON_KW[:1] if POHON_KW else []))), start))
             page = fetch(url)
             blocks = page.split('class="inzeraty inzeratyflex"')[1:]
             if not blocks: break
@@ -133,7 +156,7 @@ def bazos(domain, country, cur):
                 a = re.search(r'<h2 class="nadpis">\s*<a href="([^"]+)"[^>]*>(.*?)</a>', b, re.S)
                 if not a: continue
                 href, title = a.group(1), safe_title(a.group(2))
-                if "swift" not in title.lower(): continue
+                if MODEL not in title.lower(): continue
                 dsc = re.search(r'<div class="popis">(.*?)</div>', b, re.S)
                 desc = squash(dsc.group(1)) if dsc else ""
                 blob = title + " " + desc
@@ -155,9 +178,9 @@ def bazos(domain, country, cur):
 def autoscout(cc):
     def inner():
         out = []
-        url = ("https://www.autoscout24.%s/lst/suzuki/swift"
-               "?atype=C&fregfrom=%d&kmto=%d&priceto=11000&fuel=B&sort=age&desc=1&size=20"
-               % (cc, YEAR_MIN, KM_MAX))
+        url = ("https://www.autoscout24.%s/lst/" + ZNACKA + "/" + MODEL +
+               "?atype=C&fregfrom=%d&kmto=%d&priceto=%d&fuel=%s&sort=age&desc=1&size=20"
+               % (cc, YEAR_MIN, KM_MAX, EUR_MAX, FUEL_CODE))
         page = fetch(url)
         m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page, re.S)
         if not m:
@@ -171,7 +194,7 @@ def autoscout(cc):
                 if not KW_4X4.search(blob): continue
                 v = L.get("vehicle", {}) or {}
                 title = " ".join(x for x in [v.get("make"), v.get("model"), v.get("modelVersionInput")] if x) \
-                        or L.get("title") or "Suzuki Swift"
+                        or L.get("title") or HLEDANI
                 pr = (L.get("price", {}) or {}).get("priceFormatted") or ""
                 pnum = int(re.sub(r"\D", "", pr)) if re.search(r"\d", pr) else None
                 tr = L.get("tracking", {}) or {}
@@ -235,7 +258,7 @@ for r in results:
 merged.sort(key=lambda x: (not x["new"], x["price_czk"] or 9_000_000))
 
 with open("docs/data.json", "w", encoding="utf-8") as f:
-    json.dump({"updated": now, "status": status, "cars": merged}, f, ensure_ascii=False, indent=1)
+    json.dump({"updated": now, "hledani": HLEDANI, "status": status, "cars": merged}, f, ensure_ascii=False, indent=1)
 
 if alerts:
     with open("alert.txt", "w", encoding="utf-8") as f:
