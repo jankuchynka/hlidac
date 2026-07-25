@@ -1,78 +1,14 @@
 {
- "updated": "2026-07-25 19:47 UTC",
+ "updated": "2026-07-25 20:09 UTC",
+ "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (0)",
   "Bazos CZ": "OK (0)",
   "Bazos SK": "OK (0)",
-  "AutoScout DE": "OK (2)",
-  "AutoScout AT": "OK (0)",
-  "AutoScout IT": "OK (2)",
+  "AutoScout DE": "CHYBA: TypeError: %d format: a real number is required, not str",
+  "AutoScout AT": "CHYBA: TypeError: %d format: a real number is required, not str",
+  "AutoScout IT": "CHYBA: TypeError: %d format: a real number is required, not str",
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
- "cars": [
-  {
-   "id": "https://www.autoscout24.de/angebote/suzuki-swift-club-1-2-allrad-tuev-02-2028-benzin-rot-cat_ma68mo2036-d79ebc7d-1a14-408c-be40-d01727fadba1",
-   "src": "AutoScout DE",
-   "country": "DE",
-   "title": "Suzuki Swift Club 1.2 / Allrad / TÜV 02.2028",
-   "price_czk": 220255,
-   "price_orig": "8990 EUR",
-   "year": 2017,
-   "km": 57000,
-   "url": "https://www.autoscout24.de/angebote/suzuki-swift-club-1-2-allrad-tuev-02-2028-benzin-rot-cat_ma68mo2036-d79ebc7d-1a14-408c-be40-d01727fadba1",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/d79ebc7d-1a14-408c-be40-d01727fadba1_d5f56978-147e-416b-94cc-eaa27815b9d0.jpg/250x188.webp",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-25 18:56 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-comfort-allrad-wkr-stahl-benzin-grau-cat_ma68mo2036-8207febd-0e5b-44d9-a8e6-573a7090c8b3",
-   "src": "AutoScout DE",
-   "country": "DE",
-   "title": "Suzuki Swift 1.2 Comfort Allrad *WKR Stahl*",
-   "price_czk": 241325,
-   "price_orig": "9850 EUR",
-   "year": 2018,
-   "km": 90500,
-   "url": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-comfort-allrad-wkr-stahl-benzin-grau-cat_ma68mo2036-8207febd-0e5b-44d9-a8e6-573a7090c8b3",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/8207febd-0e5b-44d9-a8e6-573a7090c8b3_f67781d6-56b2-4146-ac56-68d736cd76a8.jpg/250x188.webp",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-25 18:56 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-cool-ss-4wd-benzina-cat_ma68mo2036-a2b12d66-e0d4-4472-a8ec-477753e46229",
-   "src": "AutoScout IT",
-   "country": "IT",
-   "title": "Suzuki Swift 5p 1.2 dualjet B-Cool s&s 4wd",
-   "price_czk": 257250,
-   "price_orig": "10500 EUR",
-   "year": 2019,
-   "km": 76000,
-   "url": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-cool-ss-4wd-benzina-cat_ma68mo2036-a2b12d66-e0d4-4472-a8ec-477753e46229",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/a2b12d66-e0d4-4472-a8ec-477753e46229_d57f2ef3-7e44-4be1-ae2d-1edc8282453b.jpg/250x188.webp",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-25 18:56 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-top-snow-ss-4wd-e6-benzina-cat_ma68mo2036-7c2835d2-e4d2-4410-96a0-ed4f23fdf580",
-   "src": "AutoScout IT",
-   "country": "IT",
-   "title": "Suzuki Swift 5p 1.2 dualjet B-Top Snow s&s 4wd E6",
-   "price_czk": 269500,
-   "price_orig": "11000 EUR",
-   "year": 2021,
-   "km": 48800,
-   "url": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-top-snow-ss-4wd-e6-benzina-cat_ma68mo2036-7c2835d2-e4d2-4410-96a0-ed4f23fdf580",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-25 18:56 UTC",
-   "new": false
-  }
- ]
+ "cars": []
 }
