@@ -1,6 +1,6 @@
 "znacka": "suzuki"          ← značka malými písmeny
 "model": "swift"            ← model malými písmeny
-"pohon_klicova_slova": ["pohon_klicova_slova": ["4x4", "allgrip", "allrad", "4wd", "awd"]
+"pohon_klicova_slova": "pohon_klicova_slova": ["4x4", "allgrip", "allrad", "4wd", "awd"],
 "palivo": "benzin"          ← nebo "nafta", "hybrid", "elektro"
 "rok_od": 2017
 "km_do": 110000
