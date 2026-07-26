@@ -1,13 +1,13 @@
 {
-  "znacka": "suzuki",
-  "model": "swift",
-  "pohon_klicova_slova": ["4x4", "allgrip", "allrad", "4wd", "awd"],
+  "znacka": "subaru",
+  "model": "xv",
+  "pohon_klicova_slova": ["4x4", "awd", "allrad", "4wd", "symmetrical"],
   "palivo": "benzin",
-  "rok_od": 2017,
-  "km_do": 110000,
-  "rozpocet_czk": 275000,
-  "zobrazit_do_czk": 300000,
-  "upozornit_cena_czk": 210000,
-  "upozornit_km": 80000,
+  "rok_od": 2016,
+  "km_do": 100000,
+  "rozpocet_czk": 300000,
+  "zobrazit_do_czk": 330000,
+  "upozornit_cena_czk": 250000,
+  "upozornit_km": 70000,
   "kurz_eur": 24.5
 }
