@@ -87,10 +87,13 @@ def find_km(text):
     return None
 
 def find_price_czk(text):
-    m = re.search(r"([\d][\d\s.]{4,11})\s*K[čc]", text)
-    if not m: return None
-    v = re.sub(r"\D", "", m.group(1))
-    return int(v) if v and 20_000 <= int(v) <= 2_000_000 else None
+    for m in re.finditer(r"(\d[\d\s.]{4,10}?)\s*K[čc]", text):
+        digits = re.sub(r"\D", "", m.group(1))
+        if len(digits) > 7:      # slepilo se s rokem pred cenou -> vezmi konec
+            digits = digits[-6:]
+        if digits and 20_000 <= int(digits) <= 5_000_000:
+            return int(digits)
+    return None
 
 def mk(url, src, country, title, price_czk, price_orig, year, km, img, note=""):
     return {"id": url, "src": src, "country": country, "title": (title or HLEDANI)[:130],
@@ -107,38 +110,42 @@ def run(name, fn):
     except Exception as e:
         status[name] = "CHYBA: %s: %s" % (type(e).__name__, str(e)[:70])
 
-# ---------------- TIPCARS (pres detaily vozu) ----------------
+# ---------------- TIPCARS ----------------
+def slug_title(link):
+    m = re.search(r"/([^/]+?)-\d{6,}\.html", link)
+    if not m: return HLEDANI
+    words = [w for w in m.group(1).split("-") if w]
+    out = []
+    for w in words:
+        if re.fullmatch(r"\d", w) and out and re.fullmatch(r"\d+", out[-1]):
+            out[-1] = out[-1] + "." + w      # "1-2" -> "1.2"
+        else:
+            out.append(w)
+    txt = " ".join(out)
+    return safe_title(txt[:1].upper() + txt[1:])
+
 def tipcars():
     out = []
-    page = fetch("https://www.tipcars.com/%s-%s%s" % (ZNACKA, MODEL, "?vybava=pohon-4x4" if POHON_KW else ""))
-    links = []
-    for m in re.finditer(r'href="(https?://www\.tipcars\.com/[^"]*?-\d{6,}\.html)"', page):
-        if m.group(1) not in links:
-            links.append(m.group(1))
-    for m in re.finditer(r'href="(/[^"]*?-\d{6,}\.html)"', page):
-        u = "https://www.tipcars.com" + m.group(1)
-        if u not in links:
-            links.append(u)
-    for link in links[:MAX_DETAIL]:
-        if ZNACKA not in link.lower() or MODEL not in link.lower():
-            continue
-        try:
-            d = fetch(link)
-        except Exception:
-            continue
-        tm = re.search(r"<title>(.*?)</title>", d, re.S)
-        title = safe_title(tm.group(1)) if tm else HLEDANI
-        title = re.split(r"\s*[|–-]\s*TipCars", title)[0].strip()
-        txt = squash(d)
-        if not KW_4X4.search(txt[:4000] + " " + title):
-            continue
-        img = ""
-        om = re.search(r'<meta[^>]+property="og:image"[^>]+content="([^"]+)"', d)
-        if om: img = om.group(1)
-        out.append(mk(link, "TipCars", "CZ", title,
-                      find_price_czk(txt), None, find_year(txt), find_km(txt), img))
-    for o in out:
-        o["price_orig"] = ("%d CZK" % o["price_czk"]) if o["price_czk"] else "?"
+    url = "https://www.tipcars.com/%s-%s%s" % (ZNACKA, MODEL, "?vybava=pohon-4x4" if POHON_KW else "")
+    page = fetch(url)
+    parts = re.split(r'href="((?:https://www\.tipcars\.com)?/[^"]*?-\d{6,}\.html)"', page)
+    seen = set()
+    for i in range(1, len(parts) - 1, 2):
+        href, chunk = parts[i], parts[i + 1][:1200]
+        link = href if href.startswith("http") else "https://www.tipcars.com" + href
+        if link in seen: continue
+        if ZNACKA not in link.lower() or MODEL not in link.lower(): continue
+        seen.add(link)
+        txt = squash(chunk)
+        title = slug_title(link)
+        if not KW_4X4.search(title + " " + txt): continue
+        price = find_price_czk(txt)
+        im = re.search(r'<img[^>]+(?:src|data-src)="([^"]+)"', chunk)
+        img = im.group(1) if im else ""
+        if img.startswith("//"): img = "https:" + img
+        out.append(mk(link, "TipCars", "CZ", title, price,
+                      ("%d CZK" % price) if price else "?",
+                      find_year(txt), find_km(txt), img))
     return out
 
 # ---------------- BAZOS ----------------
@@ -178,9 +185,9 @@ def bazos(domain, country, cur):
 def autoscout(cc):
     def inner():
         out = []
-        url = ("https://www.autoscout24.%s/lst/" + ZNACKA + "/" + MODEL +
+        url = ("https://www.autoscout24.%s/lst/%s/%s"
                "?atype=C&fregfrom=%d&kmto=%d&priceto=%d&fuel=%s&sort=age&desc=1&size=20"
-               % (cc, YEAR_MIN, KM_MAX, EUR_MAX, FUEL_CODE))
+               % (cc, ZNACKA, MODEL, YEAR_MIN, KM_MAX, EUR_MAX, FUEL_CODE))
         page = fetch(url)
         m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page, re.S)
         if not m:
