@@ -220,11 +220,89 @@ def autoscout(cc):
         return out
     return inner
 
+# ---------------- WILLHABEN (AT) ----------------
+def willhaben():
+    out = []
+    # vyhledavani ojetin: model v ceste + fulltext keyword
+    url = ("https://www.willhaben.at/iad/gebrauchtwagen/auto/gebrauchtwagenboerse"
+           "?make=%s&keyword=%s%%20%s&rows=50"
+           % (quote(ZNACKA), quote(MODEL), quote(POHON_KW[0] if POHON_KW else "")))
+    page = fetch(url)
+
+    def push(link, title, price_eur, year, km, img):
+        if not link.startswith("http"):
+            link = "https://www.willhaben.at" + link
+        out.append(mk(link, "Willhaben AT", "AT", safe_title(title),
+                      to_czk(price_eur, "EUR"), ("%d EUR" % price_eur) if price_eur else "?",
+                      year, km, img, ""))
+
+    # 1) pokus: datovy blok (__NEXT_DATA__ nebo podobny JSON se seznamem)
+    m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page, re.S)
+    if not m:
+        m = re.search(r'window\.__INITIAL_STATE__\s*=\s*(\{.*?\})\s*</script>', page, re.S)
+    if m:
+        try:
+            data = json.loads(m.group(1))
+        except Exception:
+            data = None
+        if data is not None:
+            def walk(o):
+                if isinstance(o, dict):
+                    yield o
+                    for v in o.values(): yield from walk(v)
+                elif isinstance(o, list):
+                    for v in o: yield from walk(v)
+            seen = set()
+            for d in walk(data):
+                if not isinstance(d, dict): continue
+                blob = json.dumps(d, ensure_ascii=False)
+                if MODEL not in blob.lower(): continue
+                if not KW_4X4.search(blob): continue
+                # heuristika: uzel s cenou a odkazem
+                link = d.get("seoUrl") or d.get("url") or ""
+                if isinstance(link, dict): link = link.get("href", "")
+                if not link or "gebrauchtwagen" not in str(link): continue
+                if link in seen: continue
+                seen.add(link)
+                title = d.get("heading") or d.get("description") or d.get("title") or (ZNACKA + " " + MODEL)
+                if isinstance(title, dict): title = title.get("value", "")
+                price = None
+                for pk in ("price", "amount", "priceValue"):
+                    pv = d.get(pk)
+                    if isinstance(pv, (int, float)): price = int(pv); break
+                    if isinstance(pv, dict):
+                        for q in ("value", "amount"):
+                            if isinstance(pv.get(q), (int, float)):
+                                price = int(pv[q]); break
+                ym = re.search(r"(20[12]\d)", blob)
+                km_m = re.search(r'"mileage"\s*:\s*"?(\d{4,7})', blob) or re.search(r"(\d{4,6})\s*km", blob, re.I)
+                img = ""
+                gm = re.search(r'"(https://cache\.willhaben\.at[^"]+)"', blob)
+                if gm: img = gm.group(1)
+                push(link, str(title), price,
+                     int(ym.group(1)) if ym else None,
+                     int(km_m.group(1)) if km_m else None, img)
+        if out:
+            return out
+
+    # 2) zaloha: primo z HTML - odkazy na detaily
+    seen = set()
+    for lm in re.finditer(r'href="(/iad/gebrauchtwagen/d/auto/[^"]*?-\d{6,}/?)"', page):
+        link = lm.group(1)
+        if link in seen: continue
+        if MODEL not in link.lower(): continue
+        if not KW_4X4.search(link.replace("-", " ")): continue
+        seen.add(link)
+        title = link.rsplit("/", 2)[-2].replace("-", " ")
+        push(link, title, None, find_year(link.replace("-", " ")), None, "")
+    return out
+
 run("TipCars", tipcars)
 run("Bazos CZ", bazos("bazos.cz", "CZ", "CZK"))
 run("Bazos SK", bazos("bazos.sk", "SK", "EUR"))
 run("AutoScout DE", autoscout("de"))
 run("AutoScout AT", autoscout("at"))
+run("Willhaben AT", willhaben)
 run("AutoScout IT", autoscout("it"))
 status["Sauto"] = "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
 
