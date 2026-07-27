@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27 16:18 UTC",
+ "updated": "2026-07-27 16:31 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (20)",
@@ -7,10 +7,91 @@
   "Bazos SK": "OK (0)",
   "AutoScout DE": "OK (3)",
   "AutoScout AT": "OK (2)",
+  "Willhaben AT": "OK (5)",
   "AutoScout IT": "OK (2)",
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-4x4-shine-20340-1452359860/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip 4x4 shine 20340 1452359860",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-4x4-shine-20340-1452359860/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 16:31 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-flash-1336227936/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid dualjet allgrip flash 1336227936",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-flash-1336227936/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 16:31 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-4x4-2033428625/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 4x4 2033428625",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-4x4-2033428625/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 16:31 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-869896410/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 869896410",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-869896410/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 16:31 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 1674890247",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 16:31 UTC",
+   "new": true
+  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-tempomat-7041285.html",
    "src": "TipCars",
@@ -25,7 +106,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-club-1-2-allrad-tuev-02-2028-benzin-rot-cat_ma68mo2036-d79ebc7d-1a14-408c-be40-d01727fadba1",
@@ -41,7 +122,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-1-majitel-39310270.html",
@@ -57,7 +138,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-dualjet-4x4-serv-kniha-54000559.html",
@@ -73,7 +154,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-cool-ss-4wd-benzina-cat_ma68mo2036-a2b12d66-e0d4-4472-a8ec-477753e46229",
@@ -89,7 +170,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.it/annunci/suzuki-swift-5p-1-2-dualjet-b-top-snow-ss-4wd-e6-benzina-cat_ma68mo2036-7c2835d2-e4d2-4410-96a0-ed4f23fdf580",
@@ -105,7 +186,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2i-4x4-cr-serviska-7227538.html",
@@ -121,7 +202,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-dualjet-comfort-4x4-cam-shz-alu-klima-benzin-rot-cat_ma68mo2036-769d4b24-4cf0-4691-82b7-88018fd30ebc",
@@ -137,7 +218,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2i-66kw-allgrip-serviska-21390015.html",
@@ -153,7 +234,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.at/angebote/suzuki-swift-1-2-dualjet-allgrip-shine-benzin-schwarz-cat_ma68mo2036-e8949328-0e46-4a4e-b349-cb5ac1f19781",
@@ -169,7 +250,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-dualjet-allgrip-comfort-4x4-1-hand-benzin-rot-cat_ma68mo2036-2323d88d-40c6-4bef-bdb5-c204a167979c",
@@ -185,7 +266,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.at/angebote/suzuki-swift-swift-1-2-dualjet-allgrip-shine-shine-benzin-rot-cat_ma68mo2036-b9349e76-8fa6-4bea-8847-00cf075f9632",
@@ -201,7 +282,7 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-07-27 16:18 UTC",
-   "new": true
+   "new": false
   }
  ]
 }
