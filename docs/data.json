@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-26 23:43 UTC",
+ "updated": "2026-07-27 12:42 UTC",
  "hledani": "Subaru Xv 4x4",
  "status": {
   "TipCars": "OK (11)",
@@ -11,22 +11,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.tipcars.com/subaru-xv/suv/benzin/subaru-xv-2-0-i-4x4-klima-6615875.html",
-   "src": "TipCars",
-   "country": "CZ",
-   "title": "Subaru xv 2.0 i 4x4 klima",
-   "price_czk": 190000,
-   "price_orig": "190000 CZK",
-   "year": null,
-   "km": null,
-   "url": "https://www.tipcars.com/subaru-xv/suv/benzin/subaru-xv-2-0-i-4x4-klima-6615875.html",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-26 20:08 UTC",
-   "new": false
-  },
   {
    "id": "https://www.tipcars.com/subaru-xv/kombi/nafta/subaru-xv-2-0-d-awd-34500079.html",
    "src": "TipCars",
