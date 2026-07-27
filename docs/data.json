@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27 19:01 UTC",
+ "updated": "2026-07-27 23:48 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (20)",
@@ -12,22 +12,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 1674890247",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-07-27 19:01 UTC",
-   "new": true
-  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-tempomat-7041285.html",
    "src": "TipCars",
@@ -54,7 +38,7 @@
    "year": 2017,
    "km": 57000,
    "url": "https://www.autoscout24.de/angebote/suzuki-swift-club-1-2-allrad-tuev-02-2028-benzin-rot-cat_ma68mo2036-d79ebc7d-1a14-408c-be40-d01727fadba1",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/d79ebc7d-1a14-408c-be40-d01727fadba1_d5f56978-147e-416b-94cc-eaa27815b9d0.jpg/250x188.webp",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/d79ebc7d-1a14-408c-be40-d01727fadba1_46da600e-b50f-49f7-b96d-dbeeb130c4d8.jpg/250x188.webp",
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:18 UTC",
@@ -282,6 +266,22 @@
    "note": "",
    "over": false,
    "first_seen": "2026-07-27 16:31 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 1674890247",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1674890247/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-07-27 19:01 UTC",
    "new": false
   }
  ]
