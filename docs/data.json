@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-08 15:50 UTC",
+ "updated": "2026-08-08 17:51 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (18)",
@@ -12,6 +12,38 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-3-gl-special-4wd-allrad-parksensoren-1843408675/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 3 gl special 4wd allrad parksensoren 1843408675",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-3-gl-special-4wd-allrad-parksensoren-1843408675/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-08 17:51 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-mild-hybrid-shine-hybrid-allgrip-1515520248/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 dualjet mild hybrid shine hybrid allgrip 1515520248",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-mild-hybrid-shine-hybrid-allgrip-1515520248/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-08 17:51 UTC",
+   "new": true
+  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-3-4x4-serv-kniha-54003087.html",
    "src": "TipCars",
@@ -230,7 +262,7 @@
    "year": 2019,
    "km": 105485,
    "url": "https://www.autoscout24.at/angebote/suzuki-swift-1-2-flash-allgrip-benzin-grau-cat_ma68mo2036-0b45b2bb-818b-4189-9487-0b50a1faa8de",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_f05b366d-53e6-441b-8a9c-cb83faed6348.jpg/250x188.webp",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_37592c45-dab7-4a63-91c1-da5e313a0ebd.jpg/250x188.webp",
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
@@ -298,38 +330,6 @@
    "note": "",
    "over": false,
    "first_seen": "2026-08-08 11:46 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-allgrip-shine-1671069097/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 dualjet allgrip shine 1671069097",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-allgrip-shine-1671069097/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-08 11:46 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-3-gl-4wd-allrad-1603096131/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 3 gl 4wd allrad 1603096131",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-3-gl-4wd-allrad-1603096131/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-08 10:03 UTC",
    "new": false
   }
  ]
