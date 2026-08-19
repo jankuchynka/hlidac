@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-19 08:04 UTC",
+ "updated": "2026-08-19 08:53 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (19)",
@@ -12,6 +12,22 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-817149330/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 817149330",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-817149330/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-19 08:53 UTC",
+   "new": true
+  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-tempomat-7041285.html",
    "src": "TipCars",
@@ -214,7 +230,7 @@
    "year": 2019,
    "km": 105485,
    "url": "https://www.autoscout24.at/angebote/suzuki-swift-1-2-flash-allgrip-benzin-grau-cat_ma68mo2036-0b45b2bb-818b-4189-9487-0b50a1faa8de",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_76e9d7b3-817d-4f44-9ed3-b4d5b8519298.jpg/250x188.webp",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_7204dc5d-3e26-4fe6-80fa-e2aba6ae5a0e.jpg/250x188.webp",
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
@@ -282,22 +298,6 @@
    "note": "",
    "over": false,
    "first_seen": "2026-08-19 03:15 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid dualjet allgrip shine 1372552417",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-18 22:59 UTC",
    "new": false
   }
  ]
