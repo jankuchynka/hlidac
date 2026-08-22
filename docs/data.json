@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-22 06:58 UTC",
+ "updated": "2026-08-22 08:46 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (19)",
@@ -7,25 +7,25 @@
   "Bazos SK": "OK (0)",
   "AutoScout DE": "OK (2)",
   "AutoScout AT": "OK (5)",
-  "Willhaben AT": "OK (5)",
+  "Willhaben AT": "OK (4)",
   "AutoScout IT": "OK (2)",
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
   {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-flash-957313527/",
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-817149330/",
    "src": "Willhaben AT",
    "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip flash 957313527",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 817149330",
    "price_czk": null,
    "price_orig": "?",
    "year": null,
    "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-flash-957313527/",
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-817149330/",
    "img": "",
    "note": "",
    "over": false,
-   "first_seen": "2026-08-22 06:58 UTC",
+   "first_seen": "2026-08-22 08:46 UTC",
    "new": true
   },
   {
@@ -230,7 +230,7 @@
    "year": 2019,
    "km": 105485,
    "url": "https://www.autoscout24.at/angebote/suzuki-swift-1-2-flash-allgrip-benzin-grau-cat_ma68mo2036-0b45b2bb-818b-4189-9487-0b50a1faa8de",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_2f1a5fb5-b3dc-44fb-92f8-5697db185265.jpg/250x188.webp",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_b92cd0c0-5563-44ca-bce7-9251c616ddd5.jpg/250x188.webp",
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
@@ -250,6 +250,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-flash-957313527/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip flash 957313527",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-flash-957313527/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-22 06:58 UTC",
    "new": false
   },
   {
@@ -282,38 +298,6 @@
    "note": "",
    "over": false,
    "first_seen": "2026-08-22 04:47 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid dualjet allgrip shine 1372552417",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-21 22:39 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1964633061/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 1964633061",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1964633061/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-21 22:39 UTC",
    "new": false
   }
  ]
