@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23 04:51 UTC",
+ "updated": "2026-08-23 06:59 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (19)",
@@ -12,38 +12,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-852852573/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 852852573",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-852852573/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-23 04:51 UTC",
-   "new": true
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-allgrip-1525715658/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift allgrip 1525715658",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-allgrip-1525715658/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-23 04:51 UTC",
-   "new": true
-  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-tempomat-7041285.html",
    "src": "TipCars",
@@ -282,6 +250,38 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-852852573/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 852852573",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-852852573/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-23 04:51 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-allgrip-1525715658/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift allgrip 1525715658",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-allgrip-1525715658/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-23 04:51 UTC",
    "new": false
   },
   {
