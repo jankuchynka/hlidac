@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23 01:58 UTC",
+ "updated": "2026-08-23 03:14 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (19)",
@@ -26,7 +26,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-08-23 01:58 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-club-1-2-allrad-tuev-02-2028-benzin-rot-cat_ma68gr201401ge1451va3703mt9993tr1999-d79ebc7d-1a14-408c-be40-d01727fadba1",
@@ -42,7 +42,7 @@
    "note": "",
    "over": false,
    "first_seen": "2026-08-23 01:58 UTC",
-   "new": true
+   "new": false
   },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-2-4x4-1-majitel-39310270.html",
