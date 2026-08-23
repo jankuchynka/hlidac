@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23 10:38 UTC",
+ "updated": "2026-08-23 13:00 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (19)",
@@ -230,7 +230,7 @@
    "year": 2019,
    "km": 105485,
    "url": "https://www.autoscout24.at/angebote/suzuki-swift-1-2-flash-allgrip-benzin-grau-cat_ma68mo2036-0b45b2bb-818b-4189-9487-0b50a1faa8de",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_271b4829-06f1-4ac5-8600-4bdac75b9809.jpg/250x188.webp",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/0b45b2bb-818b-4189-9487-0b50a1faa8de_7a5bdf0b-baf8-4882-b50f-abd0fa2e8a84.jpg/250x188.webp",
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
@@ -301,22 +301,6 @@
    "new": false
   },
   {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1657395763/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 1657395763",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1657395763/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-08-22 22:36 UTC",
-   "new": false
-  },
-  {
    "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
    "src": "Willhaben AT",
    "country": "AT",
@@ -326,6 +310,22 @@
    "year": null,
    "km": null,
    "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-08-22 22:36 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1657395763/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 1657395763",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1657395763/",
    "img": "",
    "note": "",
    "over": false,
