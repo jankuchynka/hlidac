@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-20 22:25 UTC",
+ "updated": "2026-09-21 04:52 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (16)",
@@ -12,6 +12,38 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1253954378/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 1253954378",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1253954378/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-09-21 04:52 UTC",
+   "new": true
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid dualjet allgrip shine 1372552417",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-09-21 04:52 UTC",
+   "new": true
+  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-3i-4x4-ac-tz-6618829.html",
    "src": "TipCars",
@@ -298,38 +330,6 @@
    "note": "",
    "over": false,
    "first_seen": "2026-09-20 16:03 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1412025987/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 1412025987",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1412025987/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-09-20 16:03 UTC",
-   "new": false
-  },
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-mhev-allgrip-shine-1517318536/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 mhev allgrip shine 1517318536",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-mhev-allgrip-shine-1517318536/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-09-20 11:20 UTC",
    "new": false
   }
  ]
