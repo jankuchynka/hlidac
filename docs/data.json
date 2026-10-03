@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-02 23:45 UTC",
+ "updated": "2026-10-03 05:15 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "OK (16)",
@@ -12,22 +12,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid dualjet allgrip shine 1372552417",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-10-02 23:45 UTC",
-   "new": true
-  },
   {
    "id": "https://www.tipcars.com/suzuki-swift/hatchback/benzin/suzuki-swift-1-3-i-4x4-serv-kniha-tazne-7042299.html",
    "src": "TipCars",
@@ -218,6 +202,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid dualjet allgrip shine 1372552417",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-dualjet-allgrip-shine-1372552417/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-10-02 23:45 UTC",
    "new": false
   },
   {
