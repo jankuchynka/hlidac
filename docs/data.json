@@ -1,11 +1,11 @@
 {
- "updated": "2026-10-16 00:22 UTC",
+ "updated": "2026-10-16 07:07 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "CHYBA: HTTPError: HTTP Error 403: Forbidden",
   "Bazos CZ": "OK (0)",
   "Bazos SK": "OK (0)",
-  "AutoScout DE": "OK (5)",
+  "AutoScout DE": "OK (6)",
   "AutoScout AT": "OK (4)",
   "Willhaben AT": "OK (5)",
   "AutoScout IT": "OK (0)",
@@ -13,19 +13,19 @@
  },
  "cars": [
   {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 dualjet shvs allgrip flash 899942705",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
+   "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-dualjet-comfort-4x4-bordcomputer-lichtesenso-benzin-schwarz-cat_ma68gr201401ge1452va3703mt9993tr2208-d2d03661-e3e2-4af8-872d-37ca4e1a6f2c",
+   "src": "AutoScout DE",
+   "country": "DE",
+   "title": "Suzuki Swift 1.2 Dualjet Comfort 4x4 Bordcomputer / Lichtesenso",
+   "price_czk": 286405,
+   "price_orig": "11690 EUR",
+   "year": 2019,
+   "km": 35812,
+   "url": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-dualjet-comfort-4x4-bordcomputer-lichtesenso-benzin-schwarz-cat_ma68gr201401ge1452va3703mt9993tr2208-d2d03661-e3e2-4af8-872d-37ca4e1a6f2c",
    "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-10-16 00:22 UTC",
+   "note": "nad rozpocet - k jednani",
+   "over": true,
+   "first_seen": "2026-10-16 07:07 UTC",
    "new": true
   },
   {
@@ -170,6 +170,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 dualjet shvs allgrip flash 899942705",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dualjet-shvs-allgrip-flash-899942705/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-10-16 00:22 UTC",
    "new": false
   },
   {
