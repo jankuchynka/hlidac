@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-26 23:51 UTC",
+ "updated": "2026-10-27 04:59 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "CHYBA: HTTPError: HTTP Error 403: Forbidden",
@@ -12,22 +12,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dj-hybrid-allgrip-flash-1543677711/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 dj hybrid allgrip flash 1543677711",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dj-hybrid-allgrip-flash-1543677711/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-10-26 23:51 UTC",
-   "new": true
-  },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-shine-4x4-shz-klima-garantie-benzin-rot-cat_ma68gr201401ge1452va3703mt9993tr2208-bb0867c7-8745-4a9a-91cc-f629f03da3a5",
    "src": "AutoScout DE",
@@ -266,6 +250,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dj-hybrid-allgrip-flash-1543677711/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 dj hybrid allgrip flash 1543677711",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-dj-hybrid-allgrip-flash-1543677711/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-10-26 23:51 UTC",
    "new": false
   },
   {
