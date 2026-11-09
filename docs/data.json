@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08 22:00 UTC",
+ "updated": "2026-11-09 01:43 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "CHYBA: HTTPError: HTTP Error 403: Forbidden",
@@ -13,19 +13,19 @@
  },
  "cars": [
   {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1239658968/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift 1 2 hybrid allgrip shine 1239658968",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1239658968/",
-   "img": "",
+   "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-shine-4x4-shz-klima-garantie-benzin-rot-cat_ma68gr201401ge1452va3703mt9993tr2208-8f47573e-cae5-4ec1-8375-114447a4175f",
+   "src": "AutoScout DE",
+   "country": "DE",
+   "title": "Suzuki Swift 1.2 Shine 4x4*SHZ*KLIMA*GARANTIE*",
+   "price_czk": 221970,
+   "price_orig": "9060 EUR",
+   "year": 2018,
+   "km": 89951,
+   "url": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-shine-4x4-shz-klima-garantie-benzin-rot-cat_ma68gr201401ge1452va3703mt9993tr2208-8f47573e-cae5-4ec1-8375-114447a4175f",
+   "img": "https://prod.pictures.autoscout24.net/listing-images/8f47573e-cae5-4ec1-8375-114447a4175f_c121c28b-33a1-42da-9cf4-b26170acd695.jpg/250x188.webp",
    "note": "",
    "over": false,
-   "first_seen": "2026-11-08 22:00 UTC",
+   "first_seen": "2026-11-09 01:43 UTC",
    "new": true
   },
   {
@@ -125,22 +125,6 @@
    "new": false
   },
   {
-   "id": "https://www.autoscout24.de/angebote/suzuki-swift-swift-1-2-allgrip-comfort-1-hand-extras-top-benzin-blau-cat_ma68gr201401ge1452va3703mt9993tr2208-397d48d2-1b39-4fd8-8708-5b8d3f4309a0",
-   "src": "AutoScout DE",
-   "country": "DE",
-   "title": "Suzuki Swift SWIFT 1.2 ALLGRIP COMFORT=1.HAND=EXTRAS=TOP !",
-   "price_czk": 292652,
-   "price_orig": "11945 EUR",
-   "year": 2019,
-   "km": 57451,
-   "url": "https://www.autoscout24.de/angebote/suzuki-swift-swift-1-2-allgrip-comfort-1-hand-extras-top-benzin-blau-cat_ma68gr201401ge1452va3703mt9993tr2208-397d48d2-1b39-4fd8-8708-5b8d3f4309a0",
-   "img": "https://prod.pictures.autoscout24.net/listing-images/397d48d2-1b39-4fd8-8708-5b8d3f4309a0_0cd32a5a-45a2-4f3b-941a-5f27f616bd9d.jpg/250x188.webp",
-   "note": "nad rozpocet - k jednani",
-   "over": true,
-   "first_seen": "2026-11-06 06:38 UTC",
-   "new": false
-  },
-  {
    "id": "https://www.autoscout24.at/angebote/suzuki-swift-swift-1-2-dualjet-allgrip-shine-shine-benzin-rot-cat_ma68mo2036-b9349e76-8fa6-4bea-8847-00cf075f9632",
    "src": "AutoScout AT",
    "country": "AT",
@@ -154,6 +138,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1239658968/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift 1 2 hybrid allgrip shine 1239658968",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-1-2-hybrid-allgrip-shine-1239658968/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-11-08 22:00 UTC",
    "new": false
   },
   {
