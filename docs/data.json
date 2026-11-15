@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14 23:53 UTC",
+ "updated": "2026-11-15 06:24 UTC",
  "hledani": "Suzuki Swift 4x4",
  "status": {
   "TipCars": "CHYBA: HTTPError: HTTP Error 403: Forbidden",
@@ -12,22 +12,6 @@
   "Sauto": "vypnuto (nacita JS - resit vlastnim hlidanim na Sauto)"
  },
  "cars": [
-  {
-   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-dualjet-allgrip-shine-allrad-wenig-km-1-2139419449/",
-   "src": "Willhaben AT",
-   "country": "AT",
-   "title": "suzuki swift dualjet allgrip shine allrad wenig km 1 2139419449",
-   "price_czk": null,
-   "price_orig": "?",
-   "year": null,
-   "km": null,
-   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-dualjet-allgrip-shine-allrad-wenig-km-1-2139419449/",
-   "img": "",
-   "note": "",
-   "over": false,
-   "first_seen": "2026-11-14 23:53 UTC",
-   "new": true
-  },
   {
    "id": "https://www.autoscout24.de/angebote/suzuki-swift-1-2-4x4-comfort-tagfahrlicht-kamera-usb-benzin-blau-cat_ma68gr201401ge1452va3703mt9993tr2208-dbed0992-f6b6-4ee3-8166-bef90262e385",
    "src": "AutoScout DE",
@@ -90,6 +74,22 @@
    "note": "nad rozpocet - k jednani",
    "over": true,
    "first_seen": "2026-08-07 22:08 UTC",
+   "new": false
+  },
+  {
+   "id": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-dualjet-allgrip-shine-allrad-wenig-km-1-2139419449/",
+   "src": "Willhaben AT",
+   "country": "AT",
+   "title": "suzuki swift dualjet allgrip shine allrad wenig km 1 2139419449",
+   "price_czk": null,
+   "price_orig": "?",
+   "year": null,
+   "km": null,
+   "url": "https://www.willhaben.at/iad/gebrauchtwagen/d/auto/suzuki-swift-dualjet-allgrip-shine-allrad-wenig-km-1-2139419449/",
+   "img": "",
+   "note": "",
+   "over": false,
+   "first_seen": "2026-11-14 23:53 UTC",
    "new": false
   },
   {
